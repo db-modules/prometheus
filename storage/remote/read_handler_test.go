@@ -70,6 +70,7 @@ func TestSampledReadEndpoint(t *testing.T) {
 	query2, err := ToQuery(0, 1, []*labels.Matcher{matcher3, matcher2}, &storage.SelectHints{Step: 0, Func: "avg"})
 	require.NoError(t, err)
 
+	// Good
 	req := &prompb.ReadRequest{Queries: []*prompb.Query{query1, query2}}
 	data, err := proto.Marshal(req)
 	require.NoError(t, err)
