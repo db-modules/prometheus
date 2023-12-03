@@ -675,6 +675,7 @@ func durationMilliseconds(d time.Duration) int64 {
 func (ng *Engine) execEvalStmt(ctx context.Context, query *query, s *parser.EvalStmt) (parser.Value, annotations.Annotations, error) {
 	prepareSpanTimer, ctxPrepare := query.stats.GetSpanTimer(ctx, stats.QueryPreparationTime, ng.metrics.queryPrepareTime)
 	mint, maxt := FindMinMaxTime(s)
+	// Good
 	querier, err := query.queryable.Querier(mint, maxt)
 	if err != nil {
 		prepareSpanTimer.Finish()

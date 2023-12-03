@@ -139,6 +139,7 @@ type querier struct {
 // If requiredMatchers are given, select returns a NoopSeriesSet if the given matchers don't match the label set of the
 // requiredMatchers. Otherwise it'll just call remote endpoint.
 func (q *querier) Select(ctx context.Context, sortSeries bool, hints *storage.SelectHints, matchers ...*labels.Matcher) storage.SeriesSet {
+	// Good
 	if len(q.requiredMatchers) > 0 {
 		// Copy to not modify slice configured by user.
 		requiredMatchers := append([]*labels.Matcher{}, q.requiredMatchers...)
