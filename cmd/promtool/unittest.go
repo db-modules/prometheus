@@ -458,6 +458,7 @@ func query(ctx context.Context, qs string, t time.Time, engine *promql.Engine, q
 	if err != nil {
 		return nil, err
 	}
+	// This is a good part.
 	res := q.Exec(ctx)
 	if res.Err != nil {
 		return nil, res.Err
